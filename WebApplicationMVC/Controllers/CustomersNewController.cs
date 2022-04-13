@@ -9,7 +9,7 @@ using WebApplicationMVC.Models;
 
 namespace WebApplicationMVC.Controllers
 {
-     
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CustomersNewController : ApiController
     {
         private industryConnectEntities db = new industryConnectEntities();
