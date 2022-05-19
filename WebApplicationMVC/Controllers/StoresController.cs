@@ -2,117 +2,103 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.Mvc;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
 using WebApplicationMVC.Models;
 
 namespace WebApplicationMVC.Controllers
 {
-    public class StoresController : Controller
+    public class StoresController : ApiController
     {
-        private industryConnectEntities db = new industryConnectEntities();
+        private industryConnectEntities5 db = new industryConnectEntities5();
 
-        // GET: Stores
-        public ActionResult Index()
+        // GET: api/Stores
+        public IQueryable<Store> GetStores()
         {
-            return View(db.Stores.ToList());
+            return db.Stores;
         }
 
-        // GET: Stores/Details/5
-        public ActionResult Details(int? id)
+        // GET: api/Stores/5
+        [ResponseType(typeof(Store))]
+        public IHttpActionResult GetStore(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Store store = db.Stores.Find(id);
             if (store == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(store);
+
+            return Ok(store);
         }
 
-        // GET: Stores/Create
-        public ActionResult Create()
+        // PUT: api/Stores/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutStore(int id, Store store)
         {
-            return View();
-        }
-
-        // POST: Stores/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Address")] Store store)
-        {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Stores.Add(store);
+                return BadRequest(ModelState);
+            }
+
+            if (id != store.Id)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(store).State = EntityState.Modified;
+
+            try
+            {
                 db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!StoreExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            return View(store);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET: Stores/Edit/5
-        public ActionResult Edit(int? id)
+        // POST: api/Stores
+        [ResponseType(typeof(Store))]
+        public IHttpActionResult PostStore(Store store)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest(ModelState);
             }
+
+            db.Stores.Add(store);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = store.Id }, store);
+        }
+
+        // DELETE: api/Stores/5
+        [ResponseType(typeof(Store))]
+        public IHttpActionResult DeleteStore(int id)
+        {
             Store store = db.Stores.Find(id);
             if (store == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(store);
-        }
 
-        // POST: Stores/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Address")] Store store)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(store).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(store);
-        }
-
-        // GET: Stores/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Store store = db.Stores.Find(id);
-            if (store == null)
-            {
-                return HttpNotFound();
-            }
-            return View(store);
-        }
-
-        // POST: Stores/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Store store = db.Stores.Find(id);
             db.Stores.Remove(store);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            return Ok(store);
         }
 
         protected override void Dispose(bool disposing)
@@ -122,6 +108,11 @@ namespace WebApplicationMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool StoreExists(int id)
+        {
+            return db.Stores.Count(e => e.Id == id) > 0;
         }
     }
 }

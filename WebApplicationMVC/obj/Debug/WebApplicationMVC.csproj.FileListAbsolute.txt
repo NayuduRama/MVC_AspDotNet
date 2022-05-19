@@ -54,6 +54,10 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\roslyn\VBCSCompiler.e
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\roslyn\VBCSCompiler.exe.config
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\AdvancedStringBuilder.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Antlr3.Runtime.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Core.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Identity.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Security.KeyVault.Keys.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Security.KeyVault.Secrets.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\ClearScript.Core.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\ClearScript.V8.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\EntityFramework.dll
@@ -90,7 +94,11 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.Routing.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.StaticFiles.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.WebUtilities.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Bcl.AsyncInterfaces.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Configuration.ConfigurationBuilders.Azure.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.DotNet.PlatformAbstractions.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Caching.Abstractions.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -108,6 +116,7 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Options.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Primitives.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.WebEncoders.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Identity.Client.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Net.Http.Headers.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Owin.Cors.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Owin.dll
@@ -129,11 +138,14 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Net.Http.Forma
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Numerics.Vectors.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Runtime.CompilerServices.Unsafe.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Security.AccessControl.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Security.Cryptography.ProtectedData.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Security.Cryptography.Xml.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Security.Permissions.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Security.Principal.Windows.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Text.Encodings.Web.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Text.Json.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Threading.Tasks.Extensions.dll
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.ValueTuple.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.Cors.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.Helpers.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.Http.Cors.dll
@@ -148,6 +160,10 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.WebPages.R
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\WebActivatorEx.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\WebGrease.dll
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\AdvancedStringBuilder.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Core.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Identity.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Security.KeyVault.Keys.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Azure.Security.KeyVault.Secrets.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\ClearScript.Core.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\ClearScript.V8.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\EntityFramework.xml
@@ -184,6 +200,10 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.StaticFiles.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.AspNetCore.WebUtilities.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Bcl.AsyncInterfaces.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Configuration.ConfigurationBuilders.Azure.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Caching.Abstractions.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Configuration.Abstractions.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.DependencyInjection.xml
@@ -199,6 +219,7 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Options.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.Primitives.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Extensions.WebEncoders.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Identity.Client.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Net.Http.Headers.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Owin.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\Microsoft.Owin.Cors.xml
@@ -221,7 +242,9 @@ F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Net.Http.Forma
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Numerics.Vectors.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Runtime.CompilerServices.Unsafe.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Text.Encodings.Web.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Text.Json.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Threading.Tasks.Extensions.xml
+F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.ValueTuple.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.Http.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.Http.Cors.xml
 F:\IndustryConnect\WebApplicationMVC\WebApplicationMVC\bin\System.Web.Helpers.xml

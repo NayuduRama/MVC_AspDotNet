@@ -2,130 +2,103 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.Mvc;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
 using WebApplicationMVC.Models;
 
 namespace WebApplicationMVC.Controllers
 {
-    public class SalesController : Controller
+    public class SalesController : ApiController
     {
-        private industryConnectEntities db = new industryConnectEntities();
+        private industryConnectEntities5 db = new industryConnectEntities5();
 
-        // GET: Sales
-        public ActionResult Index()
+        // GET: api/Sales
+        public IQueryable<Sale> GetSales()
         {
-            var sales = db.Sales.Include(s => s.Customer).Include(s => s.Product).Include(s => s.Store);
-            return View(sales.ToList());
+            return db.Sales;
         }
 
-        // GET: Sales/Details/5
-        public ActionResult Details(int? id)
+        // GET: api/Sales/5
+        [ResponseType(typeof(Sale))]
+        public IHttpActionResult GetSale(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Sale sale = db.Sales.Find(id);
             if (sale == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(sale);
+
+            return Ok(sale);
         }
 
-        // GET: Sales/Create
-        public ActionResult Create()
+        // PUT: api/Sales/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutSale(int id, Sale sale)
         {
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name");
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name");
-            ViewBag.StoreId = new SelectList(db.Stores, "Id", "Name");
-            return View();
-        }
-
-        // POST: Sales/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ProductId,CustomerId,StoreId,DateSold")] Sale sale)
-        {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Sales.Add(sale);
+                return BadRequest(ModelState);
+            }
+
+            if (id != sale.Id)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(sale).State = EntityState.Modified;
+
+            try
+            {
                 db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SaleExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", sale.CustomerId);
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", sale.ProductId);
-            ViewBag.StoreId = new SelectList(db.Stores, "Id", "Name", sale.StoreId);
-            return View(sale);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET: Sales/Edit/5
-        public ActionResult Edit(int? id)
+        // POST: api/Sales
+        [ResponseType(typeof(Sale))]
+        public IHttpActionResult PostSale(Sale sale)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest(ModelState);
             }
+
+            db.Sales.Add(sale);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = sale.Id }, sale);
+        }
+
+        // DELETE: api/Sales/5
+        [ResponseType(typeof(Sale))]
+        public IHttpActionResult DeleteSale(int id)
+        {
             Sale sale = db.Sales.Find(id);
             if (sale == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", sale.CustomerId);
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", sale.ProductId);
-            ViewBag.StoreId = new SelectList(db.Stores, "Id", "Name", sale.StoreId);
-            return View(sale);
-        }
 
-        // POST: Sales/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProductId,CustomerId,StoreId,DateSold")] Sale sale)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(sale).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", sale.CustomerId);
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", sale.ProductId);
-            ViewBag.StoreId = new SelectList(db.Stores, "Id", "Name", sale.StoreId);
-            return View(sale);
-        }
-
-        // GET: Sales/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Sale sale = db.Sales.Find(id);
-            if (sale == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sale);
-        }
-
-        // POST: Sales/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Sale sale = db.Sales.Find(id);
             db.Sales.Remove(sale);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            return Ok(sale);
         }
 
         protected override void Dispose(bool disposing)
@@ -135,6 +108,11 @@ namespace WebApplicationMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool SaleExists(int id)
+        {
+            return db.Sales.Count(e => e.Id == id) > 0;
         }
     }
 }

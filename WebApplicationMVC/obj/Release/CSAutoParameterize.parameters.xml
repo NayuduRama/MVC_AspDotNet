@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="industryConnectEntities-Web.config Connection String" description="industryConnectEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.CustomersModel.csdl|res://*/Models.CustomersModel.ssdl|res://*/Models.CustomersModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=demoserversales.database.windows.net;initial catalog=industryConnect;persist security info=True;user id=demo;password=Pranay545$;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\IndustryConnect\\WebApplicationMVC\\WebApplicationMVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='industryConnectEntities']/@connectionString" />
+  </parameter>
+  <parameter name="industryConnectEntities5-Web.config Connection String" description="industryConnectEntities5 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.CustomersModel.csdl|res://*/Models.CustomersModel.ssdl|res://*/Models.CustomersModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=demoserversales.database.windows.net;initial catalog=industryConnect;persist security info=True;user id=demo;password=Pranay545$;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\IndustryConnect\\WebApplicationMVC\\WebApplicationMVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='industryConnectEntities5']/@connectionString" />
+  </parameter>
+</parameters>
